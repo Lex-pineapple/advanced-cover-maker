@@ -1,44 +1,47 @@
 {
-  "name": "advanced-cover-maker",
-  "version": "1.0.0",
-  "description": "The editable cover generator to make your and your ebook life easier.",
-  "main": "main.tsx",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lex-pineapple/advanced-cover-maker.git"
-  },
-  "keywords": [
-    "book-cover-generator"
-  ],
-  "author": "Lex-pineapple",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Lex-pineapple/advanced-cover-maker/issues"
-  },
-  "homepage": "https://github.com/Lex-pineapple/advanced-cover-maker#readme",
-  "devDependencies": {
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "arui-presets-lint": "^7.2.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "prettier": "^3.2.5",
-    "stylelint": "^16.3.1",
-    "stylelint-config-prettier-scss": "^1.0.0",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "@vitejs/plugin-react": "^4.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "vite": "^5.2.10"
-  },
-  "prettier": "arui-presets-lint/prettier"
+    "name": "advanced-cover-maker",
+    "version": "1.0.0",
+    "description": "The editable cover generator to make your and your ebook life easier.",
+    "main": "main.tsx",
+    "type": "module",
+    "scripts": {
+        "start": "vite",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Lex-pineapple/advanced-cover-maker.git"
+    },
+    "keywords": [
+        "book-cover-generator"
+    ],
+    "author": "Lex-pineapple",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Lex-pineapple/advanced-cover-maker/issues"
+    },
+    "homepage": "https://github.com/Lex-pineapple/advanced-cover-maker#readme",
+    "devDependencies": {
+        "@types/react": "^18.2.79",
+        "@types/react-dom": "^18.2.25",
+        "@typescript-eslint/eslint-plugin": "^7.7.0",
+        "@typescript-eslint/parser": "^7.7.0",
+        "arui-presets-lint": "^7.2.0",
+        "eslint": "^8.57.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.6",
+        "prettier": "^3.2.5",
+        "sass": "^1.75.0",
+        "stylelint": "^16.3.1",
+        "stylelint-config-prettier-scss": "^1.0.0",
+        "stylelint-config-standard-scss": "^13.1.0",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "@vitejs/plugin-react": "^4.2.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "vite": "^5.2.10"
+    },
+    "prettier": "arui-presets-lint/prettier"
 }
