@@ -1,9 +1,8 @@
-import React from 'react';
 import { Input } from '@components/form';
 
 export function FormMain() {
   return (
-    <React.Fragment>
+    <form>
       <Input name='title' type='text'>
         Book title
       </Input>
@@ -19,6 +18,6 @@ export function FormMain() {
       <Input name='series' type='text'>
         Series
       </Input>
-    </React.Fragment>
+    </form>
   );
 }

@@ -1,9 +1,10 @@
-import { Header } from '@components/layout';
+import { Header, Sider } from '@components/layout';
 
 export function MainView() {
-    return (
-        <div className='main'>
-            <Header />
-        </div>
-    );
+  return (
+    <div className='main'>
+      <Header />
+      <Sider />
+    </div>
+  );
 }
