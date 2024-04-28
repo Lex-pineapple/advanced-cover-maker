@@ -22,7 +22,8 @@
       "@components": ["./src/components"],
       "@ts/*": ["./src/ts/*"],
       "@views": ["./src/views"],
-      "@views/*": ["./src/views/*"]
+      "@views/*": ["./src/views/*"],
+      "@contexts/*": ["./src/contexts/*"]
     }
   },
   "include": ["src", "cypress"],

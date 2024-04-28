@@ -1,6 +1,17 @@
 import { Input } from '@components/form';
+import { useFormContext } from '@contexts/app-context/form-context';
+
+type FormInputs = {
+  title: string;
+  author: string;
+  year: number;
+};
 
 export function FormMain() {
+  const {
+    title: [storeTitle, setStoreTitle],
+  } = useFormContext();
+
   return (
     <form>
       <Input name='title' type='text'>
