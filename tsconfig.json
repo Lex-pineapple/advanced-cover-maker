@@ -21,6 +21,8 @@
       "@components/*": ["./src/components/*"],
       "@components": ["./src/components"],
       "@ts/*": ["./src/ts/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@utils/*": ["./src/utils/*"],
       "@views": ["./src/views"],
       "@views/*": ["./src/views/*"],
       "@contexts/*": ["./src/contexts/*"]

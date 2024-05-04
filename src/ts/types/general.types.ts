@@ -36,14 +36,14 @@ type SelectComponentProps = {
   items: SelectItems[];
   name: string;
   defaultValue: string;
-  onChange: () => void;
+  onChange: React.ChangeEventHandler<HTMLSelectElement>;
 };
 
 type InputComponentProps = {
   name: string;
   type: InputType;
   value?: string | number | boolean;
-  onChange?: () => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 export type DetailedComponentProps<T> = T & BasicComponentProps;

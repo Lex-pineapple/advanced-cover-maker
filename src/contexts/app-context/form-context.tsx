@@ -2,10 +2,18 @@ import { useContext, useState } from 'react';
 import { Context } from '@contexts/app-context/app-context-provider';
 
 export function useCreateFormContext() {
-  const [store, setStoreTitle] = useState('');
+  const [storeTitle, setStoreTitle] = useState('');
+  const [storeAuthor, setStoreAuthor] = useState('');
+  const [storeYear, setStoreYear] = useState('');
+  const [storeSeries, setStoreSeries] = useState('');
+  const [storeDimensions, setStoreDimensions] = useState('');
 
   return {
-    title: [store, setStoreTitle],
+    title: [storeTitle, setStoreTitle],
+    author: [storeAuthor, setStoreAuthor],
+    year: [storeYear, setStoreYear],
+    series: [storeSeries, setStoreSeries],
+    dimensions: [storeDimensions, setStoreDimensions],
   };
 }
 
