@@ -6,7 +6,9 @@ export function Select(props: SelectProps) {
       {props.children}
       <select name={props.name} onChange={props.onChange}>
         {props.items.map((item) => (
-          <option value={item.value}>{item.name}</option>
+          <option key={item.value} value={item.value}>
+            {item.name}
+          </option>
         ))}
       </select>
     </label>

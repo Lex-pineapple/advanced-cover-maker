@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { dimensions } from '@constants/form';
 import { Context } from '@contexts/app-context/app-context-provider';
 
 export function useCreateFormContext() {
@@ -6,7 +7,7 @@ export function useCreateFormContext() {
   const [storeAuthor, setStoreAuthor] = useState('');
   const [storeYear, setStoreYear] = useState('');
   const [storeSeries, setStoreSeries] = useState('');
-  const [storeDimensions, setStoreDimensions] = useState('');
+  const [storeDimensions, setStoreDimensions] = useState(dimensions.STAND);
 
   return {
     title: [storeTitle, setStoreTitle],

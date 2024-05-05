@@ -1,0 +1,18 @@
+.main {
+  display: grid;
+  grid-template:
+    'header header'
+    'sider editor';
+}
+
+.header {
+  grid-area: header;
+}
+
+.sider {
+  grid-area: sider;
+}
+
+.editor {
+  grid-area: editor;
+}

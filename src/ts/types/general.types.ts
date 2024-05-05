@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 type InputType =
   | 'button'
@@ -44,6 +44,13 @@ type InputComponentProps = {
   type: InputType;
   value?: string | number | boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+export type EditableBoxProps = {
+  text: string;
+  type: string;
+  children: ReactNode | undefined;
+  editorRef: React.LegacyRef<HTMLDivElement>;
 };
 
 export type DetailedComponentProps<T> = T & BasicComponentProps;

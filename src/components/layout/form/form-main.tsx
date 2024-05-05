@@ -6,12 +6,6 @@ import { mapSelectDimentionItems } from '@utils/map-select-dimention-items';
 
 import './form.scss';
 
-type FormInputs = {
-  title: string;
-  author: string;
-  year: number;
-};
-
 export function FormMain() {
   const {
     title: [storeTitle, setStoreTitle],

@@ -1,3 +1,3 @@
 export const dimensions = {
-  STAND: '1600x2560',
+  STAND: '1x1.6',
 };
