@@ -1,6 +1,4 @@
-import { SyntheticEvent, useEffect, useRef, useState } from 'react';
-import { EditableBox } from '@components/editor/editable-box';
-import { EditableBoxProps } from '@ts/types/general.types';
+import { PropsWithChildren, SyntheticEvent, useEffect, useRef, useState } from 'react';
 
 const requestAnimationFrame =
   window.requestAnimationFrame ||
@@ -9,9 +7,17 @@ const requestAnimationFrame =
   window.msRequestAnimationFrame;
 const cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
-export function DraggableBox(props: EditableBoxProps) {
+export function DraggableBox(
+  props: PropsWithChildren & {
+    editorRef: React.LegacyRef<HTMLDivElement>;
+    dragEnabled: boolean;
+    changeSelectorType: () => void;
+    cursorStatus: string;
+    blockRef: React.MutableRefObject<null>;
+  },
+) {
   const [isDragging, setDragging] = useState(false);
-  const block = useRef(null);
+  const block = props.blockRef;
   const frameID = useRef(0);
   const lastX = useRef(0);
   const lastY = useRef(0);
@@ -19,7 +25,7 @@ export function DraggableBox(props: EditableBoxProps) {
   const dragY = useRef(0);
 
   const handleMove = (e) => {
-    if (!isDragging) {
+    if (!props.dragEnabled || !isDragging) {
       return;
     }
 
@@ -66,11 +72,16 @@ export function DraggableBox(props: EditableBoxProps) {
   }, [isDragging]);
 
   return (
-    <div className='draggable' ref={block} onMouseDown={handleMouseDown}>
-      aaa
-      {/* <EditableBox text={props.text} type={props.type}>
-        {props.children}
-      </EditableBox> */}
+    <div className='draggable' ref={block}>
+      {props.children}
+      <button
+        type='button'
+        aria-label='multi-box__selector'
+        className='multi-box__selector'
+        onClick={props.changeSelectorType}
+        onMouseDown={handleMouseDown}
+        style={{ cursor: props.cursorStatus }}
+      />
     </div>
   );
 }

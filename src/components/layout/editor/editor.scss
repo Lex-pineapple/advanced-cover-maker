@@ -1,45 +1,52 @@
-.editable {
-  &-input {
+.multi-box {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+
+  &__selector {
+    position: absolute;
+    bottom: -7px;
+    right: -7px;
+    border: 1px solid #5d93ff;
+    border-radius: 50%;
+    background-color: white;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
   }
 }
 
 .draggable {
-  width: 100px;
-  height: 100px;
   background-color: red;
-}
-
-.resizable {
-  position: relative;
+  height: 100px;
+  width: 100px;
   border: 1px solid rgb(203 213 225);
   border-radius: 0.25rem;
-  height: 8rem;
-  width: 8rem;
 }
 
 .resizer {
-  background: transparent;
   position: absolute;
+  background: transparent;
+
+  &--r {
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    height: 2rem;
+    width: 0.25rem;
+    cursor: col-resize;
+  }
+
+  &--b {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    height: 0.25rem;
+    width: 2rem;
+    cursor: row-resize;
+  }
 }
 
-.resizable:hover .resizer {
+.draggable.enabled:hover .resizer {
   background: rgb(99 102 241);
-}
-
-.resizer--r {
-  cursor: col-resize;
-  right: 0;
-  top: 50%;
-  transform: translate(50%, -50%);
-  height: 2rem;
-  width: 0.25rem;
-}
-
-.resizer--b {
-  cursor: row-resize;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  height: 0.25rem;
-  width: 2rem;
 }

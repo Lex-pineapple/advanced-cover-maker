@@ -1,5 +1,7 @@
-import { useRef } from 'react';
+import { ChangeEvent, useRef } from 'react';
 import { DraggableBox } from '@components/editor/draggable-box';
+import { EditableBox } from '@components/editor/editable-box';
+import { MultiBox } from '@components/editor/multi-box';
 import { ResizableBox } from '@components/editor/resizable-box';
 import { useFormContext } from '@contexts/app-context/form-context';
 import { DetailedComponentProps } from '@ts/types/general.types';
@@ -35,15 +37,11 @@ export function Editor(props: DetailedComponentProps<EditorProps>) {
       style={{ ...spliceDimensions(props.size), backgroundColor: 'gray' }}
       ref={editorElem}
     >
-      <ResizableBox>
-        <DraggableBox text={storeTitle} type='input' editorRef={editorElem}>
-          <textarea
-            className='editable-input'
-            value={storeTitle}
-            onChange={(e) => setStoreTitle(e.target.value)}
-          />
-        </DraggableBox>
-      </ResizableBox>
+      <MultiBox
+        editorElem={editorElem}
+        text={storeTitle}
+        onInputChange={(e) => setStoreTitle(e.target.value)}
+      />
     </div>
   );
 }

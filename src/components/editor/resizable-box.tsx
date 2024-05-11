@@ -1,12 +1,12 @@
-import { PropsWithChildren, useRef } from 'react';
+import { PropsWithChildren } from 'react';
 
 enum Direction {
   Horizontal = 'Horizontal',
   Vertical = 'Vertical',
 }
-export function ResizableBox(props: PropsWithChildren) {
-  const elementRef = useRef(null);
-
+export function ResizableBox(
+  props: PropsWithChildren & { resizeEnabled: boolean; resizableRef: React.MutableRefObject<null> },
+) {
   const updateCursor = (direction: Direction) => {
     document.body.style.cursor = direction === Direction.Horizontal ? 'col-resize' : 'row-resize';
     document.body.style.userSelect = 'none';
@@ -18,9 +18,9 @@ export function ResizableBox(props: PropsWithChildren) {
   };
 
   const handleMouseDown = (e) => {
-    const ele = elementRef.current;
+    const ele = props.resizableRef.current;
 
-    if (!ele) {
+    if (!props.resizeEnabled || !ele) {
       return;
     }
     const direction = e.target.classList.contains('resizer--r')
@@ -56,7 +56,7 @@ export function ResizableBox(props: PropsWithChildren) {
   };
 
   return (
-    <div className='resizable' ref={elementRef}>
+    <div className={`resizable ${props.resizeEnabled ? 'enabled' : 'disabled'}`}>
       <div className='resizer resizer--r' onMouseDown={handleMouseDown} />
       <div className='resizer resizer--b' onMouseDown={handleMouseDown} />
       {props.children}

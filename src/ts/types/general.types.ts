@@ -47,10 +47,9 @@ type InputComponentProps = {
 };
 
 export type EditableBoxProps = {
-  text: string;
+  text: string | number;
   type: string;
   children: ReactNode | undefined;
-  editorRef: React.LegacyRef<HTMLDivElement>;
 };
 
 export type DetailedComponentProps<T> = T & BasicComponentProps;
