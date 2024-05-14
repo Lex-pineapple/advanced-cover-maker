@@ -5,6 +5,9 @@ import { MoveIcon } from '@components/icons/move-icon';
 
 type DraggableBoxProps = {
   blockRef: React.MutableRefObject<HTMLDivElement | null>;
+  isSelected: boolean;
+  setSelected: () => void;
+  data: any;
 };
 
 const { requestAnimationFrame } = window;
@@ -12,6 +15,7 @@ const { cancelAnimationFrame } = window;
 
 export function DraggableBox(props: PropsWithChildren<DraggableBoxProps>) {
   const [isDragging, setDragging] = useState(false);
+
   const block = props.blockRef;
   const frameID = useRef(0);
   const lastX = useRef(0);
@@ -56,6 +60,13 @@ export function DraggableBox(props: PropsWithChildren<DraggableBoxProps>) {
   };
 
   useEffect(() => {
+    if (block.current) {
+      block.current.style.width = 'fit-content';
+      block.current.style.width = `${block.current?.offsetWidth}px`;
+    }
+  }, [props.data]);
+
+  useEffect(() => {
     document.addEventListener('mousemove', handleMove);
     document.addEventListener('mouseup', handleMouseUp);
 
@@ -66,9 +77,17 @@ export function DraggableBox(props: PropsWithChildren<DraggableBoxProps>) {
   }, [isDragging]);
 
   return (
-    <div className='draggable' ref={block}>
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div
+      className={`draggable ${props.isSelected ? 'draggable--selected' : ''}`}
+      ref={block}
+      onClick={props.setSelected}
+    >
       {props.children}
-      <Button onMouseDown={handleMouseDown} className='draggable__selector' icon={<MoveIcon />} />
+      {props.isSelected && (
+        <Button onMouseDown={handleMouseDown} className='draggable__selector' icon={<MoveIcon />} />
+      )}
+
       {/* <button
         type='button'
         aria-label='multi-box__selector'

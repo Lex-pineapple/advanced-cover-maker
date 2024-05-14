@@ -51,6 +51,7 @@ export type EditableBoxProps = {
   text: string | number;
   type: string;
   children: ReactNode | undefined;
+  isEditable: boolean;
 };
 
 export type DetailedComponentProps<T> = T & BasicComponentProps;

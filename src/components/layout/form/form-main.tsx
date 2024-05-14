@@ -2,18 +2,19 @@ import { Input } from '@components/form';
 import { Select } from '@components/form/select';
 import { dimensions } from '@constants/form';
 import { useFormContext } from '@contexts/app-context/form-context';
+import { FormContextType } from '@ts/types/form.types';
 import { mapSelectDimentionItems } from '@utils/map-select-dimention-items';
 
 import './form.scss';
 
 export function FormMain() {
+  const formContext: FormContextType = useFormContext();
   const {
     title: [storeTitle, setStoreTitle],
     author: [storeAuthor, setStoreAuthor],
     year: [storeYear, setStoreYear],
     series: [storeSeries, setStoreSeries],
-    dimensions: [storeDimensions, setStoreDimensions],
-  } = useFormContext();
+  } = formContext.displayData;
 
   return (
     <form className='form'>
