@@ -10,7 +10,7 @@ export function EditableBox(props: EditableBoxProps) {
         <div onBlur={() => setEditing(false)}>{props.children}</div>
       ) : (
         <div onClick={() => setEditing(true)}>
-          <span>{props.text}</span>
+          <div style={{ whiteSpace: 'pre-wrap' }}>{props.text}</div>
         </div>
       )}
     </div>

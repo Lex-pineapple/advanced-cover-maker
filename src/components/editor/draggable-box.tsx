@@ -1,21 +1,16 @@
-import { PropsWithChildren, SyntheticEvent, useEffect, useRef, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { Button } from '@components/common/buttons/button';
+import { MoveIcon } from '@components/icons/move-icon';
 
-const requestAnimationFrame =
-  window.requestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.msRequestAnimationFrame;
-const cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+type DraggableBoxProps = {
+  blockRef: React.MutableRefObject<HTMLDivElement | null>;
+};
 
-export function DraggableBox(
-  props: PropsWithChildren & {
-    editorRef: React.LegacyRef<HTMLDivElement>;
-    dragEnabled: boolean;
-    changeSelectorType: () => void;
-    cursorStatus: string;
-    blockRef: React.MutableRefObject<null>;
-  },
-) {
+const { requestAnimationFrame } = window;
+const { cancelAnimationFrame } = window;
+
+export function DraggableBox(props: PropsWithChildren<DraggableBoxProps>) {
   const [isDragging, setDragging] = useState(false);
   const block = props.blockRef;
   const frameID = useRef(0);
@@ -24,17 +19,13 @@ export function DraggableBox(
   const dragX = useRef(0);
   const dragY = useRef(0);
 
-  const handleMove = (e) => {
-    if (!props.dragEnabled || !isDragging) {
+  const handleMove = (e: MouseEvent) => {
+    if (!isDragging) {
       return;
     }
 
     const deltaX = lastX.current - e.pageX;
     const deltaY = lastY.current - e.pageY;
-
-    const rect = props.editorRef.current.getBoundingClientRect();
-
-    console.log('rect width', rect.width, 'dragX', e.x + e.target.offsetWidth - e.offsetX);
 
     if (dragX.current < 0) dragX.current = 0;
     if (dragY.current < 0) dragY.current = 0;
@@ -46,12 +37,15 @@ export function DraggableBox(
     }
 
     cancelAnimationFrame(frameID.current);
+
     frameID.current = requestAnimationFrame(() => {
-      block.current.style.transform = `translate3d(${dragX.current}px, ${dragY.current}px, 0)`;
+      if (block.current) {
+        block.current.style.transform = `translate3d(${dragX.current}px, ${dragY.current}px, 0)`;
+      }
     });
   };
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
     lastX.current = e.pageX;
     lastY.current = e.pageY;
     setDragging(true);
@@ -74,14 +68,15 @@ export function DraggableBox(
   return (
     <div className='draggable' ref={block}>
       {props.children}
-      <button
+      <Button onMouseDown={handleMouseDown} className='draggable__selector' icon={<MoveIcon />} />
+      {/* <button
         type='button'
         aria-label='multi-box__selector'
         className='multi-box__selector'
         onClick={props.changeSelectorType}
         onMouseDown={handleMouseDown}
         style={{ cursor: props.cursorStatus }}
-      />
+      /> */}
     </div>
   );
 }

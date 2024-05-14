@@ -5,7 +5,7 @@ enum Direction {
   Vertical = 'Vertical',
 }
 export function ResizableBox(
-  props: PropsWithChildren & { resizeEnabled: boolean; resizableRef: React.MutableRefObject<null> },
+  props: PropsWithChildren & { resizableRef: React.MutableRefObject<null> },
 ) {
   const updateCursor = (direction: Direction) => {
     document.body.style.cursor = direction === Direction.Horizontal ? 'col-resize' : 'row-resize';
@@ -20,7 +20,7 @@ export function ResizableBox(
   const handleMouseDown = (e) => {
     const ele = props.resizableRef.current;
 
-    if (!props.resizeEnabled || !ele) {
+    if (!ele) {
       return;
     }
     const direction = e.target.classList.contains('resizer--r')

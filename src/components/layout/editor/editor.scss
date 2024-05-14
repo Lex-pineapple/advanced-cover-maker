@@ -1,27 +1,39 @@
 .multi-box {
-  position: relative;
-  width: fit-content;
   height: fit-content;
+  width: fit-content;
+}
+
+.draggable {
+  position: relative;
+  border: 1px solid rgb(203 213 225);
+  border-radius: 0.25rem;
+  background-color: red;
+  height: 100px;
+  width: 100px;
 
   &__selector {
     position: absolute;
-    bottom: -7px;
-    right: -7px;
-    border: 1px solid #5d93ff;
+    bottom: -40px;
+    left: calc(50% - 10px);
+    border: none;
     border-radius: 50%;
-    background-color: white;
-    height: 15px;
-    width: 15px;
+    height: 25px;
+    width: 25px;
     cursor: pointer;
   }
 }
 
-.draggable {
-  background-color: red;
-  height: 100px;
-  width: 100px;
-  border: 1px solid rgb(203 213 225);
-  border-radius: 0.25rem;
+.editable-box {
+  &__input {
+    width: 100%;
+    resize: none;
+    background: none;
+    border: none;
+
+    &:focus-visible {
+      outline: 1px solid yellow;
+    }
+  }
 }
 
 .resizer {
@@ -34,7 +46,7 @@
     transform: translate(50%, -50%);
     height: 2rem;
     width: 0.25rem;
-    cursor: col-resize;
+    cursor: e-resize;
   }
 
   &--b {
@@ -43,7 +55,7 @@
     transform: translate(-50%, 50%);
     height: 0.25rem;
     width: 2rem;
-    cursor: row-resize;
+    cursor: n-resize;
   }
 }
 

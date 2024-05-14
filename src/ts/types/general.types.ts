@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, ReactNode, TextareaHTMLAttributes } from 'react';
 
 type InputType =
   | 'button'
@@ -25,6 +25,7 @@ type InputType =
 
 type BasicComponentProps = {
   className?: string;
+  id?: string;
 };
 
 type SelectItems = {
@@ -54,5 +55,21 @@ export type EditableBoxProps = {
 
 export type DetailedComponentProps<T> = T & BasicComponentProps;
 
+export type ButtonComponentProps = {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onMouseDown?: React.MouseEventHandler<HTMLButtonElement>;
+  style?: React.CSSProperties;
+  text?: string | number;
+  icon?: JSX.Element;
+};
+
 export type InputProps = PropsWithChildren<DetailedComponentProps<InputComponentProps>>;
 export type SelectProps = PropsWithChildren<DetailedComponentProps<SelectComponentProps>>;
+export type ButtonProps = DetailedComponentProps<ButtonComponentProps>;
+export type TextareaProps = DetailedComponentProps<TextareaHTMLAttributes<HTMLTextAreaElement>>;
+
+export type DetailedIconProps = {
+  width?: number;
+  height?: number;
+  color?: string;
+};

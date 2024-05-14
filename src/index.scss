@@ -18,3 +18,18 @@
 a {
   text-decoration: none;
 }
+
+.button {
+  padding: 0;
+
+  &-inner {
+    padding: 5px;
+
+    &--with-icon {
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

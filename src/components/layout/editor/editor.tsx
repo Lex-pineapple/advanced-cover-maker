@@ -1,8 +1,5 @@
-import { ChangeEvent, useRef } from 'react';
-import { DraggableBox } from '@components/editor/draggable-box';
-import { EditableBox } from '@components/editor/editable-box';
+import { useRef } from 'react';
 import { MultiBox } from '@components/editor/multi-box';
-import { ResizableBox } from '@components/editor/resizable-box';
 import { useFormContext } from '@contexts/app-context/form-context';
 import { DetailedComponentProps } from '@ts/types/general.types';
 
@@ -23,10 +20,10 @@ function spliceDimensions(size: string) {
 export function Editor(props: DetailedComponentProps<EditorProps>) {
   const {
     title: [storeTitle, setStoreTitle],
-    author: [storeAuthor, setStoreAuthor],
-    year: [storeYear, setStoreYear],
-    series: [storeSeries, setStoreSeries],
-    dimensions: [storeDimensions, setStoreDimensions],
+    // author: [storeAuthor, setStoreAuthor],
+    // year: [storeYear, setStoreYear],
+    // series: [storeSeries, setStoreSeries],
+    // dimensions: [storeDimensions, setStoreDimensions],
   } = useFormContext();
 
   const editorElem = useRef(null);
@@ -37,11 +34,7 @@ export function Editor(props: DetailedComponentProps<EditorProps>) {
       style={{ ...spliceDimensions(props.size), backgroundColor: 'gray' }}
       ref={editorElem}
     >
-      <MultiBox
-        editorElem={editorElem}
-        text={storeTitle}
-        onInputChange={(e) => setStoreTitle(e.target.value)}
-      />
+      <MultiBox text={storeTitle} onInputChange={(e) => setStoreTitle(e.target.value)} />
     </div>
   );
 }
