@@ -26,7 +26,7 @@ export function Editor(props: DetailedComponentProps<EditorProps>) {
   return (
     <div
       className={`editor ${props.className || ''}`}
-      style={{ ...spliceDimensions(props.size), backgroundColor: '#d7d7d7' }}
+      style={{ ...spliceDimensions(props.size), backgroundColor: 'white' }}
       ref={editorElem}
     >
       {Object.entries(formContext.displayData).map(

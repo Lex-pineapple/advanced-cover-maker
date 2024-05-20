@@ -2,7 +2,7 @@
   display: grid;
   grid-template:
     'header header'
-    'sider editor';
+    'sider editor' / 2fr 3fr;
 }
 
 .header {
@@ -13,6 +13,9 @@
   grid-area: sider;
 }
 
-.editor {
+.editor-workplace {
   grid-area: editor;
+  padding: 20px;
+  background-color: #d7d7d7;
+  aspect-ratio: 1 / 1.6;
 }

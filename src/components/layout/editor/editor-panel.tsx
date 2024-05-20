@@ -3,12 +3,16 @@ import { FormContextType } from '@ts/types/form.types';
 
 import { Editor } from './editor';
 
-export function EditorPanel() {
+export function EditorWorkplace() {
   const formContext: FormContextType = useFormContext();
 
   const {
     dimensions: [storeDimensions, setStoreDimensions],
   } = formContext.settingData;
 
-  return <Editor size={storeDimensions} />;
+  return (
+    <div className='editor-workplace'>
+      <Editor size={storeDimensions} />
+    </div>
+  );
 }
