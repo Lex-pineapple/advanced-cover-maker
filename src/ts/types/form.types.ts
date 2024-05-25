@@ -7,5 +7,6 @@ export type FormContextType = {
   };
   settingData: {
     dimensions: [string, React.Dispatch<React.SetStateAction<string>>];
+    design: [string, React.Dispatch<React.SetStateAction<string>>];
   };
 };

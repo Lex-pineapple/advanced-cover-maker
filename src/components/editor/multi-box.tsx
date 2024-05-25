@@ -3,10 +3,12 @@ import { TextArea } from '@components/common/inputs/textarea';
 import { DraggableBox } from '@components/editor/draggable-box';
 import { EditableBox } from '@components/editor/editable-box';
 import { ResizableBox } from '@components/editor/resizable-box';
+import { PositionProps } from '@ts/types/editor.types';
 
 type MultiBoxProps = {
   text: string | number;
   onInputChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  initialPos?: PositionProps;
 };
 
 export function MultiBox(props: MultiBoxProps) {
@@ -20,6 +22,7 @@ export function MultiBox(props: MultiBoxProps) {
         isSelected={isSelected}
         setSelected={() => setIsSelected(true)}
         data={props.text}
+        initialPos={props.initialPos}
       >
         <ResizableBox resizableRef={elementRef} resizeEnabled={isSelected}>
           <EditableBox text={props.text} type='input' isEditable={isSelected}>

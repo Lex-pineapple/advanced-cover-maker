@@ -1,4 +1,5 @@
 import { PropsWithChildren, ReactNode, TextareaHTMLAttributes } from 'react';
+import { PositionProps } from '@ts/types/editor.types';
 
 type InputType =
   | 'button'
@@ -73,4 +74,9 @@ export type DetailedIconProps = {
   width?: number;
   height?: number;
   color?: string;
+};
+
+export type StoreDisplayElement = {
+  value: number | string;
+  position: PositionProps;
 };

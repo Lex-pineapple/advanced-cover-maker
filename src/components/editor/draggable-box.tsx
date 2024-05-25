@@ -2,12 +2,14 @@
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { Button } from '@components/common/buttons/button';
 import { MoveIcon } from '@components/icons/move-icon';
+import { PositionProps } from '@ts/types/editor.types';
 
 type DraggableBoxProps = {
   blockRef: React.MutableRefObject<HTMLDivElement | null>;
   isSelected: boolean;
   setSelected: () => void;
   data: any;
+  initialPos?: PositionProps;
 };
 
 const { requestAnimationFrame } = window;

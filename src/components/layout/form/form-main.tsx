@@ -1,6 +1,6 @@
 import { Input } from '@components/form';
 import { Select } from '@components/form/select';
-import { dimensions } from '@constants/form';
+import { designs, dimensions } from '@constants/form';
 import { useFormContext } from '@contexts/app-context/form-context';
 import { FormContextType } from '@ts/types/form.types';
 import { mapSelectDimentionItems } from '@utils/map-select-dimention-items';
@@ -36,6 +36,9 @@ export function FormMain() {
         onChange={(e) => setStoreDimensions(e.target.value)}
       >
         Dimensions
+      </Select>
+      <Select items={mapSelectDimentionItems(designs)} name='designs'>
+        Design
       </Select>
     </form>
   );

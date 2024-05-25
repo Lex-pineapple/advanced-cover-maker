@@ -2,3 +2,22 @@
   display: flex;
   flex-direction: column;
 }
+
+.label {
+  font-weight: 600;
+}
+
+.input {
+  display: block;
+  border: 1px solid #5ab2ff;
+  border-radius: 5px;
+
+  &-select {
+    width: 100%;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 2px #5ab2ff;
+  }
+}

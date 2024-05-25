@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { dimensions } from '@constants/form';
+import { designs, dimensions } from '@constants/form';
 import { Context } from '@contexts/app-context/app-context-provider';
 import { FormContextType } from '@ts/types/form.types';
 
@@ -9,6 +9,7 @@ export function useCreateFormContext() {
   const [storeYear, setStoreYear] = useState('');
   const [storeSeries, setStoreSeries] = useState('');
   const [storeDimensions, setStoreDimensions] = useState(dimensions.STAND);
+  const [storeDesign, setStoreDesign] = useState(designs.STAND);
 
   return {
     displayData: {
@@ -19,6 +20,7 @@ export function useCreateFormContext() {
     },
     settingData: {
       dimensions: [storeDimensions, setStoreDimensions],
+      design: [storeDesign, setStoreDesign],
     },
   };
 }
