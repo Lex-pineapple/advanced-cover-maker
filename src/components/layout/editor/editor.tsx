@@ -1,7 +1,8 @@
 import { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MultiBox } from '@components/editor/multi-box';
-import { useFormContext } from '@contexts/app-context/form-context';
-import { FormContextType } from '@ts/types/form.types';
+import { FieldTypes, setValueAction } from '@store/action-creators/display-actions';
+import { displaySelector } from '@store/selectors/display-selectors';
 import { DetailedComponentProps } from '@ts/types/general.types';
 
 import './editor.scss';
@@ -19,8 +20,8 @@ function spliceDimensions(size: string) {
 }
 
 export function Editor(props: DetailedComponentProps<EditorProps>) {
-  const formContext: FormContextType = useFormContext();
-
+  const displayFields = useSelector(displaySelector);
+  const dispatch = useDispatch();
   const editorElem = useRef(null);
 
   return (
@@ -29,13 +30,16 @@ export function Editor(props: DetailedComponentProps<EditorProps>) {
       style={{ ...spliceDimensions(props.size), backgroundColor: 'white' }}
       ref={editorElem}
     >
-      {Object.entries(formContext.displayData).map(
-        ([, [storeValue, setStoreValue]], idx) =>
-          storeValue && (
+      {Object.entries(displayFields).map(
+        ([fieldName, field], idx) =>
+          field.value && (
             <MultiBox
+              // eslint-disable-next-line react/no-array-index-key
               key={idx}
-              text={storeValue}
-              onInputChange={(e) => setStoreValue(e.target.value)}
+              text={field.value}
+              onInputChange={(e) =>
+                dispatch(setValueAction(e.target.value, fieldName as FieldTypes))
+              }
             />
           ),
       )}

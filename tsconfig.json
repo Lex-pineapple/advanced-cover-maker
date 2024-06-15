@@ -18,6 +18,8 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
+      "@store": ["./src/store"],
+      "@store/*": ["./src/store/*"],
       "@components/*": ["./src/components/*"],
       "@components": ["./src/components"],
       "@ts/*": ["./src/ts/*"],
