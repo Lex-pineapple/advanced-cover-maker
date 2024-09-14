@@ -5,7 +5,7 @@
   "main": "main.tsx",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,4 +1,7 @@
+import { Text } from '@shared/typography/text';
 import React from 'react';
+
+import styles from './input.module.scss';
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -10,8 +13,8 @@ type InputProps = React.DetailedHTMLProps<
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ label, ...rest }, ref) => {
   return (
     <label>
-      {label}
-      <input {...rest} ref={ref} />
+      <Text className={styles.label}>{label}</Text>
+      <input {...rest} ref={ref} className={styles.input} />
     </label>
   );
 });

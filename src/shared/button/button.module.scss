@@ -1,0 +1,30 @@
+.root {
+  border: none;
+  border-radius: 32px;
+  color: var(--color-white);
+  cursor: pointer;
+  height: 44px;
+  width: 142px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background ease-in-out 0.2s;
+}
+
+.main {
+  background: var(--color-accent);
+
+  &:hover {
+    background: var(--color-gray);
+  }
+}
+
+.outlined {
+  border: 1px solid var(--color-black);
+  background: transparent;
+}
+
+.block {
+  width: 100%;
+}

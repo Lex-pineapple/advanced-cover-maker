@@ -1,11 +1,12 @@
 import { Controller, useForm } from 'react-hook-form';
-
 import { yupResolver } from '@hookform/resolvers/yup';
 import { formSchema } from '@/schemas/form';
 import { Input } from '@shared/input';
+import { useAppDispatch } from '@/hooks/store';
+import { Title } from '@shared/typography/title';
+import { Button } from '@shared/button';
 
 import styles from './form.module.scss';
-import { useAppDispatch } from '@/hooks/store';
 
 export const Form = () => {
   const dispatch = useAppDispatch();
@@ -26,13 +27,13 @@ export const Form = () => {
 
   return (
     <div className={styles.root}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <Title order={5}>Основные данные</Title>
         <Controller
           control={control}
           name='series'
           render={({ field }) => <Input label='Series' {...field} />}
         />
-
         <Controller
           control={control}
           name='author'
@@ -53,7 +54,9 @@ export const Form = () => {
           name='size'
           render={({ field }) => <Input label='Size' {...field} />}
         />
-        <button type='submit'>submit</button>
+        <Button htmlType='submit' type='main' block className={styles.button}>
+          Create cover
+        </Button>
       </form>
     </div>
   );
