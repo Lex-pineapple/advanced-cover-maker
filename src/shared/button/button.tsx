@@ -4,11 +4,13 @@ import cn from 'classnames';
 import styles from './button.module.scss';
 
 export type ButtonProps = {
+  style?: React.CSSProperties;
+  icon?: boolean;
   rightAddon?: JSX.Element;
   width?: string;
   height?: string;
   block?: boolean;
-  type?: 'main' | 'outlined';
+  type?: 'main' | 'outlined' | 'transparent';
   htmlType?: 'button' | 'submit';
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode;
@@ -27,6 +29,8 @@ export const Button = ({
   rightAddon,
   className,
   fill,
+  icon,
+  style,
 }: ButtonProps) => (
   <button
     type={htmlType === 'button' ? 'button' : 'submit'}
@@ -34,8 +38,9 @@ export const Button = ({
     className={cn(styles.root, className, {
       [styles[type]]: true,
       [styles.block]: block,
+      [styles.icon_only]: icon,
     })}
-    style={{ width, height, backgroundColor: fill }}
+    style={{ ...style, width, height, backgroundColor: fill }}
   >
     {children}
     {rightAddon}

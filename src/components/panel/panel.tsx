@@ -1,4 +1,18 @@
 import { useAppDispatch } from '@/hooks/store';
+import { Button } from '@shared/button';
+import { JustifyCenterIcon } from '@/assets/icons/justify-center';
+import { Input } from '@shared/input';
+import { NumberInput } from '@components/panel/components/number-input';
+import { BoldIcon } from '@/assets/icons/bold';
+import { ItalicIcon } from '@/assets/icons/italic';
+import { AlignCenterIcon } from '@/assets/icons/align-center';
+import { DropoutList } from '@shared/dropout-list';
+
+import styles from './panel.module.scss';
+import { AlignBottomIcon } from '@/assets/icons/align-bottom';
+import { AlignTopIcon } from '@/assets/icons/align-top';
+import { JustifyLeftIcon } from '@/assets/icons/justify-left';
+import { JustifyRightIcon } from '@/assets/icons/justify-right';
 
 export const Panel = () => {
   const dispatch = useAppDispatch();
@@ -12,9 +26,38 @@ export const Panel = () => {
   };
 
   return (
-    <div>
-      <button onClick={onAlignCenter}>align center</button>
-      <button onClick={onAlignLeft}>align left</button>
+    <div className={styles.root}>
+      <Input value={'Roboto'} />
+      <NumberInput />
+      <Button
+        type='transparent'
+        icon
+        rightAddon={<div className={styles.color} style={{ backgroundColor: 'red' }}></div>}
+      />
+      <Button
+        type='transparent'
+        rightAddon={<BoldIcon width={20} fill='var(--color-dk-gray)' />}
+        icon
+      />
+      <Button
+        type='transparent'
+        rightAddon={<ItalicIcon width={20} fill='var(--color-dk-gray)' />}
+        icon
+      />
+      <DropoutList
+        items={[
+          <JustifyCenterIcon width={20} fill='var(--color-dk-gray)' />,
+          <JustifyLeftIcon width={20} fill='var(--color-dk-gray)' />,
+          <JustifyRightIcon width={20} fill='var(--color-dk-gray)' />,
+        ]}
+      />
+      <DropoutList
+        items={[
+          <AlignCenterIcon width={20} fill='var(--color-dk-gray)' />,
+          <AlignBottomIcon width={20} fill='var(--color-dk-gray)' />,
+          <AlignTopIcon width={20} fill='var(--color-dk-gray)' />,
+        ]}
+      />
     </div>
   );
 };

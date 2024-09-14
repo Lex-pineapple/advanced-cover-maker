@@ -1,0 +1,18 @@
+.visible {
+  position: relative;
+  z-index: 20;
+}
+
+.collapsible {
+  position: relative;
+  z-index: -5;
+
+  &_item {
+    position: absolute;
+    left: 0;
+    margin-bottom: 8px;
+    box-shadow: 0 0 11px -3px var(--color-gray);
+    background: var(--color-white);
+    transition: all ease-in-out 0.2s;
+  }
+}
