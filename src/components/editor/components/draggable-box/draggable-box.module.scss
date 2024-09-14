@@ -1,0 +1,22 @@
+.root {
+  width: fit-content;
+  cursor: default;
+  user-select: none;
+  position: relative;
+}
+
+.resize_enabled {
+  outline: 1px solid red;
+}
+
+.marker_vertical_left {
+  position: absolute;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  background: #fff;
+  bottom: -5px;
+  right: -5px;
+  cursor: nw-resize;
+}

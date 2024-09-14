@@ -1,9 +1,10 @@
-import { MainView } from '@views';
+import { Main } from '@views/main';
 
 export function App() {
   return (
-    <div className='app'>
-      <MainView />
+    <div>
+      hhh
+      <Main />
     </div>
   );
 }
