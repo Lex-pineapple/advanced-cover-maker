@@ -6,6 +6,7 @@ export const formSchema = yup.object().shape({
   title: yup.string(),
   year: yup.number(),
   series: yup.string(),
+  size: yup.string(),
 });
 
 export type formSchemaType = InferType<typeof formSchema>;

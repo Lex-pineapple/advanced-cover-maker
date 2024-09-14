@@ -1,31 +1,18 @@
-export type ActionCategoryParams = {
-  SET_VALUE: string;
-  SET_POSITION: string;
-  SET_POSITION_X: string;
-  SET_POSITION_Y: string;
-};
+export const formActionTypes = [
+  'form/setAuthor',
+  'form/setYear',
+  'form/setTitle',
+  'form/setSize',
+  'form/setSeries',
+  'form/setForm',
+] as const;
 
-function getTemplateValues(name: string) {
-  return {
-    SET_VALUE: `${name}/setValue`,
-    SET_POSITION: `${name}/setPosition`,
-    SET_POSITION_X: `${name}/setPositionX`,
-    SET_POSITION_Y: `${name}/setPositionY`,
-  };
-}
+export type FormActions = (typeof formActionTypes)[number];
 
-function generateActionTypes(entries: string[]) {
-  const ActionTypes: { [key: string]: ActionCategoryParams } = {};
+export const itemActionTypes = ['item/addNewItem', 'item/updateItem'];
 
-  entries.forEach((item) => {
-    ActionTypes[item] = getTemplateValues(item);
-  });
+export type ItemActions = (typeof itemActionTypes)[number];
 
-  return ActionTypes;
-}
+export const currentItemActionTypes = ['currItem/setCurrItem', 'currItem/setAlignment'] as const;
 
-const ActionEntries = ['title', 'author', 'year', 'series'];
-
-export const ActionTypes = {
-  DISPLAY: generateActionTypes(ActionEntries),
-};
+export type CurrentItemActions = (typeof currentItemActionTypes)[number];

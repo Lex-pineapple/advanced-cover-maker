@@ -1,9 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import displayReducer from '@store/reducers/display-slice';
+import currentItemReducer from '@store/reducers/current-item-slice';
+import formReducer from '@store/reducers/form-slice';
+import itemArrayReducer from '@store/reducers/item-array-slice';
 
 const rootReducer = combineReducers({
-  display: displayReducer,
-  // settings: ,
+  form: formReducer,
+  itemArray: itemArrayReducer,
+  currentItem: currentItemReducer,
 });
 
 export default rootReducer;
