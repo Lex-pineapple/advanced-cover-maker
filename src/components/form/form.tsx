@@ -5,11 +5,19 @@ import { Input } from '@shared/input';
 import { useAppDispatch } from '@/hooks/store';
 import { Title } from '@shared/typography/title';
 import { Button } from '@shared/button';
+import cn from 'classnames';
 
 import styles from './form.module.scss';
+import { useSelector } from 'react-redux';
+import { currSidebarSelector } from '@store/selectors/panels.selectors';
 
-export const Form = () => {
+type FormProps = {
+  className?: string;
+};
+
+export const Form = ({ className }: FormProps) => {
   const dispatch = useAppDispatch();
+  const currForm = useSelector(currSidebarSelector);
   const { handleSubmit, control } = useForm({
     defaultValues: {
       series: '',
@@ -26,7 +34,7 @@ export const Form = () => {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={cn(styles.root, className, { [styles.collapsed]: currForm !== 'book-info' })}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <Title order={5}>Основные данные</Title>
         <Controller

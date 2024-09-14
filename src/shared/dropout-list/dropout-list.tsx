@@ -25,7 +25,7 @@ export const DropoutList = ({ items }: DropoutListProps) => {
       <div className={cn(styles.collapsible, { [styles.collapsed]: collapsed })}>
         {items.map((item, idx) => (
           <Button
-            key={item.key}
+            key={item.props.id}
             type='transparent'
             style={{
               transform: collapsed ? 'translateY(-40px)' : `translateY(${16 + idx * 50}px)`,
@@ -34,6 +34,8 @@ export const DropoutList = ({ items }: DropoutListProps) => {
             icon
             className={styles.collapsible_item}
             onClick={() => {
+              console.log('clicking');
+
               setCurrElement(item);
               setCollapsed(true);
             }}

@@ -16,3 +16,7 @@ export type ItemActions = (typeof itemActionTypes)[number];
 export const currentItemActionTypes = ['currItem/setCurrItem', 'currItem/setAlignment'] as const;
 
 export type CurrentItemActions = (typeof currentItemActionTypes)[number];
+
+export const panelsActionTypes = ['panels/setCurrentSidebar'] as const;
+
+export type PanelsActions = (typeof panelsActionTypes)[number];

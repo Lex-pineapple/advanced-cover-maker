@@ -1,0 +1,12 @@
+.root {
+  background-color: var(--color-white);
+  box-shadow: 0 0 11px -3px var(--color-gray);
+}
+
+.active {
+  background-color: var(--color-shadow);
+
+  svg {
+    fill: red;
+  }
+}
