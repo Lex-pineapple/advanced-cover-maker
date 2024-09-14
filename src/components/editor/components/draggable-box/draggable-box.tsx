@@ -30,7 +30,7 @@ export const DraggableBox = ({ text, id, dimensions }: DraggableBoxProps) => {
   const handleParamsChange = (options: ItemTypeOptions) => {
     if (textBoxRef.current) {
       if (options.alignment?.horizontal === 'center') {
-        const { width, height } = (textBoxRef.current as Element).getBoundingClientRect();
+        const { width } = (textBoxRef.current as Element).getBoundingClientRect();
         console.log('updating', `${dimensions.width / 2 - width / 2}px`);
 
         setCalculatedStyles({ ...calculatedStyles, left: `${dimensions.width / 2 - width / 2}px` });
@@ -47,10 +47,6 @@ export const DraggableBox = ({ text, id, dimensions }: DraggableBoxProps) => {
     setResizeState(!resizeState);
   };
 
-  const handleMouseDown = (e) => {
-    console.log('e', e);
-  };
-
   return (
     <div
       ref={textBoxRef}
@@ -59,7 +55,7 @@ export const DraggableBox = ({ text, id, dimensions }: DraggableBoxProps) => {
       style={calculatedStyles}
     >
       <div className={styles.text}>{text}</div>
-      {resizeState && <div className={styles.marker_vertical_left} onMouseDown={handleMouseDown} />}
+      {resizeState && <div className={styles.marker_vertical_left} />}
     </div>
   );
 };

@@ -30,9 +30,7 @@ export const Editor = () => {
       className={styles.root}
     >
       <DraggableBox text={formdata.series} id={0} dimensions={editorDimensions} />
-      {/* <p className={styles.text}>{formdata.author}</p>
-      <p className={styles.text}>{formdata.title}</p>
-      <p className={styles.text}>{formdata.year}</p> */}
+      <DraggableBox text={formdata.author} id={1} dimensions={editorDimensions} />
     </div>
   );
 };
