@@ -2,7 +2,7 @@ import { MainView } from '@views';
 
 export function App() {
   return (
-    <div className='app'>
+    <div>
       <MainView />
     </div>
   );
