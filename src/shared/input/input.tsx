@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './input.module.scss';
 
-type InputProps = React.DetailedHTMLProps<
+export type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {

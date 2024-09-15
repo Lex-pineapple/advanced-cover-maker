@@ -10,6 +10,7 @@ import cn from 'classnames';
 import styles from './form.module.scss';
 import { useSelector } from 'react-redux';
 import { currSidebarSelector } from '@store/selectors/panels.selectors';
+import { InputAutocomplete } from '@shared/input-autocomplete';
 
 type FormProps = {
   className?: string;
@@ -40,7 +41,7 @@ export const Form = ({ className }: FormProps) => {
         <Controller
           control={control}
           name='series'
-          render={({ field }) => <Input label='Series' {...field} />}
+          render={({ field }) => <InputAutocomplete label='Series' {...field} />}
         />
         <Controller
           control={control}
