@@ -1,0 +1,33 @@
+.root {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 0;
+}
+
+.thin {
+  font-weight: 400;
+}
+
+.normal {
+  font-weight: 500;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.primary {
+  color: var(--color-black);
+}
+
+.secondary {
+  color: var(--color-gray);
+}
+
+.inverted {
+  color: var(--color-white);
+}

@@ -1,0 +1,44 @@
+.root {
+  border: none;
+  border-radius: 12px;
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background ease-in-out 0.2s;
+}
+
+.main {
+  background: var(--color-accent);
+
+  &:hover {
+    background: var(--color-gray);
+  }
+}
+
+.outlined {
+  border: 1px solid var(--color-black);
+  background: transparent;
+}
+
+.transparent {
+  border: none;
+  background: transparent;
+
+  &:hover {
+    background: var(--color-gray-hover);
+  }
+}
+
+.block {
+  width: 100%;
+}
+
+.icon_only {
+  width: 40px;
+  height: 40px;
+  padding: 0 5px;
+}

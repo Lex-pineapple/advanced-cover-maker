@@ -1,0 +1,20 @@
+.root {
+  background-color: var(--color-white);
+  box-shadow: 0 0 11px -3px var(--color-gray);
+}
+
+.text {
+  color: var(--color-dk-gray);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.button {
+  color: var(--color-dk-gray);
+  margin-bottom: 8px;
+}
+
+.active {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+}

@@ -1,0 +1,44 @@
+.root {
+  color: var(--color-black);
+  line-height: normal;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.inverted {
+  color: var(--color-white);
+}
+
+.order {
+  &_1 {
+    font-weight: 400;
+    font-size: 128px;
+    line-height: 115.2px;
+  }
+
+  &_2 {
+    font-weight: 800;
+    font-size: 96px;
+    line-height: 78.72px;
+  }
+
+  &_3 {
+    font-weight: 400;
+    font-size: 74px;
+    letter-spacing: -0.04em;
+    line-height: 62.9px;
+  }
+
+  &_4 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 39.36px;
+  }
+
+  &_5 {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 28.8px;
+    letter-spacing: -0.001em;
+  }
+}
