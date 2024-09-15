@@ -15,3 +15,12 @@
   height: 24px;
   border-radius: 12px;
 }
+
+.button {
+  color: var(--color-dk-gray);
+
+  &_active {
+    color: var(--color-accent);
+    background-color: var(--color-accent-light);
+  }
+}

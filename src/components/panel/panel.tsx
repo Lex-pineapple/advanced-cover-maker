@@ -41,13 +41,15 @@ export const Panel = ({ className }: PanelProps) => {
       />
       <Button
         type='transparent'
-        rightAddon={<BoldIcon width={20} fill='var(--color-dk-gray)' />}
+        rightAddon={<BoldIcon width={20} />}
         icon
+        className={cn({ [styles.button_active]: true })}
       />
       <Button
         type='transparent'
-        rightAddon={<ItalicIcon width={20} fill='var(--color-dk-gray)' />}
+        rightAddon={<ItalicIcon width={20} />}
         icon
+        className={cn({ [styles.button_active]: true })}
       />
       <DropoutList
         items={[

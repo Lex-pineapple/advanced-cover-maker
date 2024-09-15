@@ -3,10 +3,18 @@
   box-shadow: 0 0 11px -3px var(--color-gray);
 }
 
-.active {
-  background-color: var(--color-shadow);
+.text {
+  color: var(--color-dk-gray);
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-  svg {
-    fill: red;
-  }
+.button {
+  color: var(--color-dk-gray);
+  margin-bottom: 8px;
+}
+
+.active {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }

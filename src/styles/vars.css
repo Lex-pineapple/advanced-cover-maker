@@ -3,8 +3,11 @@
   --color-white: #fff;
   --color-accent: #e22c79;
   --color-shadow: #d79daa;
+  --color-accent-light: #f8d6de;
   --color-black: #171717;
+  --color-gray-input: #f2f2f3;
   --color-gray: #c6c6cd;
   --color-gray-hover: #f7f7f7;
   --color-dk-gray: #959599;
+  --color-dk-gray-input: #868787;
 }
